@@ -12,16 +12,15 @@ export class ActorComponent implements OnInit {
 
   constructor(private actorService : ActorService) {}
 
-  actor: IActor = ACTORDATA;
+  actorData: IActor= ACTORDATA;
   
 
   getActorData(): void{
-    this.actor = this.actorService.getActorData();
+    this.actorData = this.actorService.getActorData();
   }
 
   ngOnInit(): void {
     this.getActorData();
-    console.log(this.actor.knownFor[0].title)
   }
 
 }

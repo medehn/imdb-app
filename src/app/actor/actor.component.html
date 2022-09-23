@@ -1,31 +1,28 @@
 <br /><br /><br />
 
-<div *ngIf="actor" class="col-xl-3 col-sm-6">
+<div *ngIf="actorData.id !=''" class="col-xl-3 col-sm-6">
   <div class="card">
     <div class="card-body">
       <div class="d-flex align-items-center">
         <div>
           <img
-            src="{{ actor.imageUrl }}"
+            src="{{ actorData.imageUrl }}"
             alt=""
             class="avatar-md rounded-circle img-thumbnail"
           />
         </div>
         <div class="flex-1 ms-3">
           <h5 class="mb-1">
-            {{ actor.name }}
+            {{ actorData.name }}
           </h5>
-          <h5 class="mb-1">{{ actor.role }}</h5>
+          <h6 class="mb-1">{{ actorData.role }}</h6>
         </div>
       </div>
       <div class="d-flex gap-2 pt-4">
-        <button type="button" class="btn btn-primary btn-sm w-50">
-          <i class="bx bx-message-square-dots me-1"></i>Movies
-        </button>
-      </div>Known for: 
-      <div *ngFor="let movie of actor.knownFor; let index as i">
-        {{movie.title}}
-        
+        <p>Movies</p>
+      </div>
+      <div *ngFor="let movie of actorData.knownFor; let index; as: i">
+        {{ movie.title }}
       </div>
     </div>
   </div>

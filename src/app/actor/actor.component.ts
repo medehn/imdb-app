@@ -6,21 +6,19 @@ import { ACTORDATA } from './imdbdata';
 @Component({
   selector: 'app-actor',
   templateUrl: './actor.component.html',
-  styleUrls: ['./actor.component.scss']
+  styleUrls: ['./actor.component.scss'],
 })
 export class ActorComponent implements OnInit {
+  constructor(private actorService: ActorService) {}
 
-  constructor(private actorService : ActorService) {}
+  actorData: IActor = ACTORDATA;
+  searchTerm: string = 'Jean Reno';
 
-  actorData: IActor= ACTORDATA;
-  
-
-  getActorData(): void{
+  getActorData(): void {
     this.actorData = this.actorService.getActorData();
   }
 
   ngOnInit(): void {
     this.getActorData();
   }
-
 }
